@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import channelsData from "./data"
+import Filter from "./Filter"
 
 const Channels = () => {
   const [channels, setChannels] = useState(channelsData)
@@ -21,21 +22,36 @@ const Channels = () => {
   }
 
   return (
-    <div>
-      {channels.map(channel => (
-        <div key={channel.id} className="channel-card">
-          <img src={channel.image} alt={channel.name} />
-          <h3>{channel.name}</h3>
-          <p>{channel.description}</p>
-          <button
-            onClick={() => handleJoinClick(channel)}
-            className={joinedChannels.includes(channel.id) ? 'joined' : ''}
-          >
-            {joinedChannels.includes(channel.id) ? 'Joined' : 'Join Channel'}
-          </button>
+    <div className="channel-outer">
+      <h2>Online <br/> Communities</h2>
+      <div className="channel-container">
+        <div className="side-bar">
+          <h3>Search</h3>
+          <Filter />
         </div>
-      ))}
+        <div>
+          {channels.map(channel => (
+            <div key={channel.id} className="channel-card" >
+              <div className="card">
+                <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
+                <div className="chan-card-description">
+                  <h3>{channel.name}</h3>
+                  <p>{channel.description}</p>
+                </div>
+                <button
+                  onClick={() => handleJoinClick(channel)}
+                  className={joinedChannels.includes(channel.id) ? 'joined' : ''}
+                >
+                  {joinedChannels.includes(channel.id) ? 'Joined' : 'Join Channel'}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
     </div>
+    
   )
 }
 

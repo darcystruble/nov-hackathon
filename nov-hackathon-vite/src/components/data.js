@@ -65,7 +65,7 @@ const channels = [
     name: "ga-gamers-srg",
     description:
       "A gathering space for fans of Console, Table Top, RPG, MMORPG, Classic, Mobile, and all OTHER types of games.",
-    image: "../assets/gamers.png",
+    image: "../assets/gaming.png",
     type: "fun",
     timezone: "N/A",
     course: "All",

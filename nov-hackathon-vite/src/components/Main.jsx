@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 
 const Main = () => {
   return (
-    <div>
+    <div className="main-container">
       <Navbar />
       <Routes>
         <Route path='/channel' element={<Channel />} />
