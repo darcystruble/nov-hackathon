@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import channelsData from "../data"
+import channelsData from "./data"
 import JoinPopup from './JoinPopup'
 
 const Channels = () => {
