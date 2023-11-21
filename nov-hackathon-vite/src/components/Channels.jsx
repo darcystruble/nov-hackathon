@@ -40,7 +40,7 @@ const Channels = () => {
                 <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
                 <div className="chan-card-description">
                   <h3>{channel.name}</h3>
-                  <h4>{channel.slack_name}</h4>
+                  <h4>Slack Channel Name: {channel.slack_name}</h4>
                   <p>{channel.description}</p>
                 </div>
                 <button
