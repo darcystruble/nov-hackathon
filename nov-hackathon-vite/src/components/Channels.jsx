@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import channelsData from "./data";
 import Filter from "./Filter";
 
-const Channels = ({ selectedFilter }) => {
-  const [channels, setChannels] = useState(channelsData);
-  const [joinedChannels, setJoinedChannels] = useState([]);
-  const [joinPopup, setJoinPopup] = useState({ show: false, channelName: "" });
+
+const Channels = () => {
+  const [channels, setChannels] = useState(channelsData)
+  const [joinedChannels, setJoinedChannels] = useState([])
+  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null })
+  // const [joinConfirmation, setJoinConfirmation] = useState(false)
+
 
   const handleJoinClick = (channel) => {
     const isJoined = joinedChannels.includes(channel.id);
@@ -17,15 +20,29 @@ const Channels = ({ selectedFilter }) => {
       );
       setJoinedChannels(updatedJoinedChannels);
     } else {
-      // User is not joined
-      setJoinedChannels([...joinedChannels, channel.id]);
-      alert(`You have joined the ${channel.name} channel!`);
+
+      // Show the confirmation popup
+      setJoinPopup({ show: true, channel: channel })
+
     }
   };
 
   const filteredChannels = selectedFilter
     ? channels.filter((channel) => channel.type === selectedFilter)
     : channels;
+
+  const confirmJoin = () => {
+    // Close the confirmation popup
+    setJoinPopup({ show: false, channel: null })
+
+    // Join the channel
+    setJoinedChannels([...joinedChannels, joinPopup.channel.id])
+  }
+
+  const cancelJoin = () => {
+    // Close the confirmation popup
+    setJoinPopup({ show: false, channel: null });
+  }
 
   return (
     <div className="channel-outer">
@@ -38,12 +55,15 @@ const Channels = ({ selectedFilter }) => {
           <Filter />
         </div>
         <div>
-          {filteredChannels.map((channel) => (
+
+          {channels.map((channel) => (
+
             <div key={channel.id} className="channel-card">
               <div className="card">
                 <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
                 <div className="chan-card-description">
                   <h3>{channel.name}</h3>
+                  <h4>Slack Channel Name: #{channel.slack_name}</h4>
                   <p>{channel.description}</p>
                 </div>
                 <button
@@ -61,8 +81,24 @@ const Channels = ({ selectedFilter }) => {
           ))}
         </div>
       </div>
+
+      {joinPopup.show && (
+        <div className="popup">
+          <p>Do you want to join {joinPopup.channel.name} channel?</p>
+          <button onClick={confirmJoin}>Yes</button>
+          <button onClick={cancelJoin}>No</button>
+        </div>
+      )}
+
+      {/* {joinConfirmation && (
+        <div className="confirmation-message">
+          <p>You have joined the {joinPopup.channel.name} channel!</p>
+        </div>
+      )} */}
     </div>
-  );
-};
+
+  )
+}
+
 
 export default Channels;

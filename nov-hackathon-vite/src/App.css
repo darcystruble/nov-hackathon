@@ -1,5 +1,6 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: 100vw;
   /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
@@ -12,7 +13,7 @@
 
 /* HEADER */
 .header-container {
-  width: 100vw;
+  width: 100%;
   height: 250px;
   background-image: url('./assets/GAdashboard.png');
   background-size: cover;
@@ -33,13 +34,17 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: var(--main-back-color);
-  color: gray;
+  background-color: var(--grey-text);
+  color: #262626;
 }
-
 .ga-logo {
   background-image: url('./assets/GAlogo.png');
   background-size: cover;
+}
+.name-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* NAVBAR */
 .navbar-area {
@@ -53,6 +58,7 @@
 .nav-items {
   text-transform: uppercase;
   color: var(--grey-text);
+  font-weight: 700;
   margin-right: 25px;
   cursor: pointer;
 }
@@ -67,9 +73,26 @@
   padding-top: 5px;
   margin-top: 15px;
 }
-.channel-outer > h2 {
+/* .channel-outer > h2 {
   margin-left: 100px;
   margin-bottom: 20px;
+} */
+.channel-header {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+.h2-container {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.h2-container > h2 {
+  margin: -2px;
+  padding: 0;
 }
 .channel-container {
   display: flex;
@@ -78,12 +101,57 @@
 }
 /* channel-card */
 .card {
+  margin-bottom: 60px;
+  padding: 10px;
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   width: 65vw;
+  /* background-color: #fafafa; */
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px #d2d2d2, -2px -2px 7px #d2d2d2;
+  border: none;
 }
 .card > img {
   height: 100px;
+  width: 100px;
+  overflow: hidden;
 }
+.chan-card-description {
+  /* background-color: pink; */
+  text-align: left;
+  width: 50%;
+}
+.chan-card-description > h3 {
+  margin-bottom: 2px;
+}
+.chan-card-description > p {
+  margin-top: 0;
+  color: var(--grey-text);
+}
+.card > button {
+  height: 40px;
+  width: 170px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--teal);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+/* sidebar */
+.side-bar {
+  width: 17vw;
+}
+.side-bar > h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
 /* filter area */
 .filter-container {
   margin-right: 20px;
@@ -93,9 +161,10 @@
 .filter-container > select {
   margin-bottom: 20px;
   padding: 3px;
+  width: 100%;
   color: #262626;
   background-color: var(--main-back-color);
-  box-shadow: 1px 1px 5px #c2c2c2, -1px -1px 5px #c2c2c2;
+  box-shadow: 1px 1px 5px #f1f1f1, -1px -1px 5px #f1f1f1;
   border: none;
 }
 
@@ -150,11 +219,52 @@
 }
 
 .sei-image {
-  background-image: url('./assets/SEI-main.png');
-  background-size: cover;
+  content: url('./assets/SEI-main.png');
+  /* background-size: cover; */
 }
 
 .outcomes-image {
-  background-image: url('./assets/Outcomes.png');
-  background-size: cover;
+  content: url('./assets/Outcomes.png');
+  /* background-size: cover; */
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup p {
+  margin-bottom: 10px;
+}
+
+.popup button {
+  background-color: #01798F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* .navbar-container .active-menu-item {
+  transform: scale(1.1);
+  background-color: #002142;
+} */
+
+.navbar-container .active-menu-item::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #01798F;
+  margin-top: 5px;
 }
