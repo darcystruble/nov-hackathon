@@ -1,11 +1,17 @@
 import { useState } from "react";
 import Main from "./components/Main";
-import Header from './components/Header';
+import Header from "./components/Header";
+// import Filter from "./components/Filter";
+// import Channels from "./components/Channels";
 // import Navbar from './components/Navbar'
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedFilter, setSelectedFilter] = useState({});
+
+  const handleFilterSubmit = (filters) => {
+    setSelectedFilter(filters);
+  };
 
   return (
     <>
@@ -13,6 +19,8 @@ function App() {
         <Header />
         {/* for all routes */}
         <Main />
+        {/* <Filter onFilterSubmit={handleFilterSubmit} />
+        <Channels filters={selectedFilter} /> */}
       </div>
     </>
   );
