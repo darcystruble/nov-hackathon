@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import channelsData from "./data"
-import JoinPopup from './JoinPopup'
 
 const Channels = () => {
   const [channels, setChannels] = useState(channelsData)
@@ -12,17 +11,13 @@ const Channels = () => {
 
     if (isJoined) {
       // User is already joined
-      const updatedJoinedChannels = joinedChannels.filter(id => id !== channel.id)
+      const updatedJoinedChannels = joinedChannels.filter((id) => id !== channel.id)
       setJoinedChannels(updatedJoinedChannels)
     } else {
       // User is not joined
       setJoinedChannels([...joinedChannels, channel.id])
-      setJoinPopup({ show: true, channelName: channel.name })
+      alert(`You have joined the ${channel.name} channel!`)
     }
-  }
-
-  const handleClosePopup = () => {
-    setJoinPopup({ show: false, channelName: '' })
   }
 
   return (
@@ -40,12 +35,8 @@ const Channels = () => {
           </button>
         </div>
       ))}
-
-      {joinPopup.show && (
-        <JoinPopup channelName={joinPopup.channelName} onClose={handleClosePopup} />
-      )}
     </div>
   )
 }
 
-export default Channels;
+export default Channels
