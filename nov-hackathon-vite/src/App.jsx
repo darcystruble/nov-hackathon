@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Main from "./components/Main";
+import Header from './components/Header';
+// import Navbar from './components/Navbar'
 import "./App.css";
 
 function App() {
@@ -7,12 +10,9 @@ function App() {
   return (
     <>
       <div>
-        {/* navbar might not be functional */}
-        <Navbar />
         <Header />
-
         {/* for all routes */}
-        <Main.jsx />
+        <Main />
       </div>
     </>
   );
