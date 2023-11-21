@@ -220,12 +220,12 @@
 
 .sei-image {
   content: url('./assets/SEI-main.png');
-  /* background-size: cover; */
+  width: 100%;
 }
 
 .outcomes-image {
   content: url('./assets/Outcomes.png');
-  /* background-size: cover; */
+  width: 100%;
 }
 
 
