@@ -1,7 +1,9 @@
 const Outcomes = () => {
     return (
-        <div className="outcomes-image">
-            
+        <div className="outcomes-container">
+            <div className="outcomes-image">
+                
+            </div>
         </div>
     )
 }
