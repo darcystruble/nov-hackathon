@@ -82,10 +82,6 @@
 
 
 }
-/* .channel-outer > h2 {
-  margin-left: 100px;
-  margin-bottom: 20px;
-} */
 .channel-header {
   margin-top: 20px;
   margin-bottom: 50px;
@@ -277,5 +273,6 @@
   content: "";
   display: block;
   border-bottom: 3px solid #01798F;
+  /* margin-bottom: -15px; */
   margin-top: 5px;
 }
