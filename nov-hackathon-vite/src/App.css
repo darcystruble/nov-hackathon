@@ -58,6 +58,7 @@
 .nav-items {
   text-transform: uppercase;
   color: var(--grey-text);
+  font-weight: 700;
   margin-right: 25px;
   cursor: pointer;
 }
@@ -78,7 +79,7 @@
 } */
 .channel-header {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   display: flex;
   width: 80%;
   justify-content: space-between;
@@ -121,7 +122,13 @@
   text-align: left;
   width: 50%;
 }
-
+.chan-card-description > h3 {
+  margin-bottom: 2px;
+}
+.chan-card-description > p {
+  margin-top: 0;
+  color: var(--grey-text);
+}
 .card > button {
   height: 40px;
   width: 170px;
@@ -135,6 +142,16 @@
   transition: border-color 0.25s;
 }
 
+/* sidebar */
+.side-bar {
+  width: 17vw;
+}
+.side-bar > h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
 /* filter area */
 .filter-container {
   margin-right: 20px;
@@ -144,9 +161,10 @@
 .filter-container > select {
   margin-bottom: 20px;
   padding: 3px;
+  width: 100%;
   color: #262626;
   background-color: var(--main-back-color);
-  box-shadow: 1px 1px 5px #c2c2c2, -1px -1px 5px #c2c2c2;
+  box-shadow: 1px 1px 5px #f1f1f1, -1px -1px 5px #f1f1f1;
   border: none;
 }
 
