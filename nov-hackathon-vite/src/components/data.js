@@ -4,7 +4,7 @@ const channels = [
     name: "ga-lgbtqia-srg",
     description:
       "A student resource group uniting members of the LGBTQIA+ community & Allies",
-    image: "../assets/lgbtqia.png",
+    image: "",
     type: "identity",
     timezone: "N/A",
     course: "All",
