@@ -150,11 +150,11 @@
 }
 
 .sei-image {
-  background-image: url('./assets/SEI-main.png');
-  background-size: cover;
+  content: url('./assets/SEI-main.png');
+  /* background-size: cover; */
 }
 
 .outcomes-image {
-  background-image: url('./assets/Outcomes.png');
-  background-size: cover;
+  content: url('./assets/Outcomes.png');
+  /* background-size: cover; */
 }
