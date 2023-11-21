@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import channels from "./data";
 
 const Filter = () => {
   const initialValues = {
@@ -118,6 +118,7 @@ const Filter = () => {
         // value={channelType.channelType}
         // onChange={handleChannelTypeChange}
       >
+        <option value="channel-type">Select Channel</option>
         <option value="ga-lgbtqia-srg">LGBTQIA</option>
         <option value="ga-pets-srg">Pets</option>
         <option value="ga-epic-srg">EPIC</option>
