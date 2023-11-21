@@ -4,10 +4,11 @@ import Channel from './Channels';
 // import Filter from './Filter';
 import Navbar from './Navbar';
 
+
 const Main = () => {
   return (
-  <div>
-      <Navbar/>
+    <div>
+      <Navbar />
       <Routes>
         <Route path='/channel' element={<Channel />} />
         {/* <Route path='/filter' element={<Filter />} /> */}
