@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import channelsData from "./data";
 import Filter from "./Filter";
 
-
 const Channels = () => {
-  const [channels, setChannels] = useState(channelsData)
-  const [joinedChannels, setJoinedChannels] = useState([])
-  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null })
+  const [channels, setChannels] = useState(channelsData);
+  const [joinedChannels, setJoinedChannels] = useState([]);
+  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null });
   // const [joinConfirmation, setJoinConfirmation] = useState(false)
-
 
   const handleJoinClick = (channel) => {
     const isJoined = joinedChannels.includes(channel.id);
@@ -20,29 +18,38 @@ const Channels = () => {
       );
       setJoinedChannels(updatedJoinedChannels);
     } else {
-
       // Show the confirmation popup
-      setJoinPopup({ show: true, channel: channel })
-
+      setJoinPopup({ show: true, channel: channel });
     }
   };
 
-  const filteredChannels = selectedFilter
-    ? channels.filter((channel) => channel.type === selectedFilter)
-    : channels;
+  // const filteredChannels = selectedFilter
+  //   ? channels.filter((channel) => channel.type === selectedFilter)
+  //   : channels;
 
   const confirmJoin = () => {
     // Close the confirmation popup
-    setJoinPopup({ show: false, channel: null })
+    setJoinPopup({ show: false, channel: null });
 
     // Join the channel
-    setJoinedChannels([...joinedChannels, joinPopup.channel.id])
-  }
+    setJoinedChannels([...joinedChannels, joinPopup.channel.id]);
+  };
 
   const cancelJoin = () => {
     // Close the confirmation popup
     setJoinPopup({ show: false, channel: null });
-  }
+  };
+
+  const handleFilterSubmit = (filters) => {
+    const filteredChannels = channelsData.filter((channel) => {
+      return (
+        (filters.affiliation === "" ||
+          channel.affiliation === filters.affiliation) &&
+        (filters.channelType === "all" || channel.name === filters.channelType)
+      );
+    });
+    setChannels(filteredChannels);
+  };
 
   return (
     <div className="channel-outer">
@@ -52,12 +59,10 @@ const Channels = () => {
       <div className="channel-container">
         <div className="side-bar">
           <h3>Search</h3>
-          <Filter />
+          <Filter onFilterSubmit={handleFilterSubmit} />
         </div>
         <div>
-
           {channels.map((channel) => (
-
             <div key={channel.id} className="channel-card">
               <div className="card">
                 <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
@@ -96,9 +101,7 @@ const Channels = () => {
         </div>
       )} */}
     </div>
-
-  )
-}
-
+  );
+};
 
 export default Channels;

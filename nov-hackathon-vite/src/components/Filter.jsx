@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Channels from "./Channels";
 import channels from "./data";
 
-const Filter = () => {
+const Filter = ({ onFilterSubmit }) => {
   const initialValues = {
     affiliation: "",
     channelType: "",
@@ -26,7 +26,7 @@ const Filter = () => {
     setChannelType(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     onFilterSubmit({
       affiliation: affiliation.affiliation,
       channelType: channelType,
