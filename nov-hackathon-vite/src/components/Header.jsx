@@ -7,7 +7,6 @@ const Header = () => {
         <div className="ga-logo"></div>
         <div className="name-icon">IC</div>
       </div>
-      <h1></h1>
     </div>
   );
 };
