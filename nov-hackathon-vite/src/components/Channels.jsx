@@ -23,7 +23,13 @@ const Channels = () => {
 
   return (
     <div className="channel-outer">
-      <h2>Online <br/> Communities</h2>
+      <div className="channel-header">
+        <div className="h2-container">
+          <h2>Online</h2>
+          <h2>Communities</h2>
+        </div>
+        <p>Network and collaborate with other GA students</p>
+      </div>
       <div className="channel-container">
         <div className="side-bar">
           <h3>Search</h3>
