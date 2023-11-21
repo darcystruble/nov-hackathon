@@ -1,64 +1,65 @@
-import React, { useState } from "react"
-import channelsData from "./data"
-import Filter from "./Filter"
+import React, { useState } from "react";
+import channelsData from "./data";
+import Filter from "./Filter";
 
 const Channels = () => {
-  const [channels, setChannels] = useState(channelsData)
-  const [joinedChannels, setJoinedChannels] = useState([])
-  const [joinPopup, setJoinPopup] = useState({ show: false, channelName: '' })
+  const [channels, setChannels] = useState(channelsData);
+  const [joinedChannels, setJoinedChannels] = useState([]);
+  const [joinPopup, setJoinPopup] = useState({ show: false, channelName: "" });
 
   const handleJoinClick = (channel) => {
-    const isJoined = joinedChannels.includes(channel.id)
+    const isJoined = joinedChannels.includes(channel.id);
 
     if (isJoined) {
       // User is already joined
-      const updatedJoinedChannels = joinedChannels.filter((id) => id !== channel.id)
-      setJoinedChannels(updatedJoinedChannels)
+      const updatedJoinedChannels = joinedChannels.filter(
+        (id) => id !== channel.id
+      );
+      setJoinedChannels(updatedJoinedChannels);
     } else {
       // User is not joined
-      setJoinedChannels([...joinedChannels, channel.id])
-      alert(`You have joined the ${channel.name} channel!`)
+      setJoinedChannels([...joinedChannels, channel.id]);
+      alert(`You have joined the ${channel.name} channel!`);
     }
-  }
+  };
 
   return (
     <div className="channel-outer">
-      <div className="channel-header">
-        <div className="h2-container">
-          <h2>Online</h2>
-          <h2>Communities</h2>
-        </div>
-        <p>Network and collaborate with other GA students</p>
-      </div>
+      <h2>
+        Online <br /> Communities
+      </h2>
       <div className="channel-container">
         <div className="side-bar">
           <h3>Search</h3>
           <Filter />
         </div>
         <div>
-          {channels.map(channel => (
-            <div key={channel.id} className="channel-card" >
+          {channels.map((channel) => (
+            <div key={channel.id} className="channel-card">
               <div className="card">
                 <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
                 <div className="chan-card-description">
                   <h3>{channel.name}</h3>
+                  <h4>{channel.slack_name}</h4>
                   <p>{channel.description}</p>
                 </div>
                 <button
                   onClick={() => handleJoinClick(channel)}
-                  className={joinedChannels.includes(channel.id) ? 'joined' : ''}
+                  className={
+                    joinedChannels.includes(channel.id) ? "joined" : ""
+                  }
                 >
-                  {joinedChannels.includes(channel.id) ? 'Joined' : 'Join Channel'}
+                  {joinedChannels.includes(channel.id)
+                    ? "Joined"
+                    : "Join Channel"}
                 </button>
               </div>
             </div>
           ))}
         </div>
-        
       </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Channels
+export default Channels;
