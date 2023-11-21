@@ -106,17 +106,22 @@
   align-items: center;
   justify-content: space-evenly;
   width: 65vw;
-  background-color: #fafafa;
-  /* border-radius: 10px; */
+  /* background-color: #fafafa; */
+  border-radius: 5px;
   box-shadow: 2px 2px 7px #d2d2d2, -2px -2px 7px #d2d2d2;
   border: none;
 }
 .card > img {
   height: 100px;
+  width: 100px;
+  overflow: hidden;
 }
 .chan-card-description {
+  /* background-color: pink; */
+  text-align: left;
   width: 50%;
 }
+
 .card > button {
   height: 40px;
   width: 170px;
