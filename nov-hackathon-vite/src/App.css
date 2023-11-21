@@ -137,6 +137,7 @@
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: var(--button-text);
   background-color: var(--teal);
   cursor: pointer;
   transition: border-color 0.25s;
@@ -246,7 +247,7 @@
 
 .popup button {
   background-color: #01798F;
-  color: white;
+  color: var(--button-text);
   border: none;
   padding: 10px 20px;
   text-align: center;

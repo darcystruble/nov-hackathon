@@ -23,10 +23,6 @@ const Channels = () => {
     }
   };
 
-  // const filteredChannels = selectedFilter
-  //   ? channels.filter((channel) => channel.type === selectedFilter)
-  //   : channels;
-
   const confirmJoin = () => {
     // Close the confirmation popup
     setJoinPopup({ show: false, channel: null });
