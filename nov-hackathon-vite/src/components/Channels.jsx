@@ -5,7 +5,8 @@ import Filter from "./Filter"
 const Channels = () => {
   const [channels, setChannels] = useState(channelsData)
   const [joinedChannels, setJoinedChannels] = useState([])
-  const [joinPopup, setJoinPopup] = useState({ show: false, channelName: '' })
+  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null })
+  // const [joinConfirmation, setJoinConfirmation] = useState(false)
 
   const handleJoinClick = (channel) => {
     const isJoined = joinedChannels.includes(channel.id)
@@ -15,10 +16,22 @@ const Channels = () => {
       const updatedJoinedChannels = joinedChannels.filter((id) => id !== channel.id)
       setJoinedChannels(updatedJoinedChannels)
     } else {
-      // User is not joined
-      setJoinedChannels([...joinedChannels, channel.id])
-      alert(`You have joined the ${channel.name} channel!`)
+      // Show the confirmation popup
+      setJoinPopup({ show: true, channel: channel })
     }
+  }
+
+  const confirmJoin = () => {
+    // Close the confirmation popup
+    setJoinPopup({ show: false, channel: null })
+
+    // Join the channel
+    setJoinedChannels([...joinedChannels, joinPopup.channel.id])
+  }
+
+  const cancelJoin = () => {
+    // Close the confirmation popup
+    setJoinPopup({ show: false, channel: null });
   }
 
   return (
@@ -48,10 +61,22 @@ const Channels = () => {
             </div>
           ))}
         </div>
-        
       </div>
+
+      {joinPopup.show && (
+        <div className="popup">
+          <p>Do you want to join {joinPopup.channel.name} channel?</p>
+          <button onClick={confirmJoin}>Yes</button>
+          <button onClick={cancelJoin}>No</button>
+        </div>
+      )}
+
+      {/* {joinConfirmation && (
+        <div className="confirmation-message">
+          <p>You have joined the {joinPopup.channel.name} channel!</p>
+        </div>
+      )} */}
     </div>
-    
   )
 }
 
