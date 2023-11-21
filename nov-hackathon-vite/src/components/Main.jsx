@@ -1,21 +1,19 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Channel from './Channels'
-import Filter from './Filter'
-import Header from './Header'
-import Navbar from './Navbar'
-import App from '../App'
+// import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Channel from './Channels';
+import Filter from './Filter';
+import Navbar from './Navbar';
 
 const Main = () => {
-  return <div>
-    <Routes>
-      <Route path='/' element={<App />} />
-      <Route path='/channel' element={<Channel />} />
-      <Route path='/filter' element={<Filter />} />
-      <Route path='/header' element={<Header />} />
-      <Route path='/navbar' element={<Navbar />} />
-    </Routes>
-  </div>;
+  return (
+  <div>
+      <Navbar/>
+      <Routes>
+        <Route path='/channel' element={<Channel />} />
+        <Route path='/filter' element={<Filter />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default Main;
