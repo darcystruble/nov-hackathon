@@ -36,6 +36,11 @@
   background-color: var(--main-back-color);
   color: gray;
 }
+
+.ga-logo {
+  background-image: url('./assets/GAlogo.png');
+  background-size: cover;
+}
 /* NAVBAR */
 .navbar-area {
   display: flex;
@@ -142,4 +147,14 @@
 
 #pic12 {
   content: url("./assets/hiring.png");
+}
+
+.sei-image {
+  background-image: url('./assets/SEI-main.png');
+  background-size: cover;
+}
+
+.outcomes-image {
+  background-image: url('./assets/Outcomes.png');
+  background-size: cover;
 }
