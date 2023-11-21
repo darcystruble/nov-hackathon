@@ -23,8 +23,8 @@ const Channels = () => {
   return (
     <div>
       {channels.map(channel => (
-        <div key={channel.id} className="channel-card">
-          <img src={channel.image} alt={channel.name} />
+        <div key={channel.id} className="channel-card" >
+        <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
           <h3>{channel.name}</h3>
           <p>{channel.description}</p>
           <button

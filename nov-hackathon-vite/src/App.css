@@ -55,7 +55,8 @@
   height: 50px;
   background-color: grey;
 }
-.ga-logo, .name-icon {
+.ga-logo,
+.name-icon {
   margin: 0 15px;
   width: 35px;
   height: 35px;
@@ -75,4 +76,52 @@
 .nav-items {
   margin-right: 25px;
   cursor: pointer;
+}
+
+#pic1 {
+  content: url("./assets/lgbtqia.png");
+}
+
+#pic2 {
+  content: url("./assets/pets.png");
+}
+
+#pic3 {
+  content: url("./assets/empowered.png");
+}
+
+#pic4 {
+  content: url("./assets/women.png");
+}
+
+#pic5 {
+  content: url("./assets/parents.png");
+}
+
+#pic6 {
+  content: url("./assets/neurodiversity.png");
+}
+
+#pic7 {
+  content: url("./assets/gamers.png");
+}
+
+#pic8 {
+  content: url("./assets/blackintech.png");
+}
+
+#pic9 {
+  content: url("./assets/uxdi.png");
+}
+
+#pic10 {
+  content: url("./assets/sei.png");
+}
+
+#pic11 {
+  content: url("./assets/dsi.png");
+}
+
+#pic12 {
+  content: url("./assets/hiring.png");
 }
