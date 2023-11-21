@@ -13,29 +13,29 @@ const Filter = () => {
   const [channelType, setChannelType] = useState(initialValues);
   // const [timezone, setTimezone] = useState(initialValues);
 
-  useEffect(() => {
-    const getAffiliation = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/filter");
-        setAffiliation(response.data);
-      } catch (err) {
-        console.log("Error fetching Affiliations:", err);
-      }
-    };
-    getAffiliation();
-  }, []);
+  // useEffect(() => {
+  //   const getAffiliation = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3001/filter");
+  //       setAffiliation(response.data);
+  //     } catch (err) {
+  //       console.log("Error fetching Affiliations:", err);
+  //     }
+  //   };
+  //   getAffiliation();
+  // }, []);
 
-  useEffect(() => {
-    const getChannelType = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/filter");
-        setChannelType(response.data);
-      } catch (err) {
-        console.log("Error fetching Channel Types:", err);
-      }
-    };
-    getChannelType();
-  }, []);
+  // useEffect(() => {
+  //   const getChannelType = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3001/filter");
+  //       setChannelType(response.data);
+  //     } catch (err) {
+  //       console.log("Error fetching Channel Types:", err);
+  //     }
+  //   };
+  //   getChannelType();
+  // }, []);
 
   // useEffect(() => {
   //   const getTimezone = async () => {
@@ -103,8 +103,8 @@ const Filter = () => {
         name="Affiliation"
         type="text"
         id="affiliation"
-        value={affiliation.affiliation}
-        onChange={handleAffiliationChange}
+        // value={affiliation.affiliation}
+        // onChange={handleAffiliationChange}
       >
         <option value="Affiliation">Select Affiliation</option>
         <option value="UXDI">UXDI</option>
@@ -115,8 +115,8 @@ const Filter = () => {
         name="channelType"
         type="text"
         id="channelType"
-        value={channelType.channelType}
-        onChange={handleChannelTypeChange}
+        // value={channelType.channelType}
+        // onChange={handleChannelTypeChange}
       >
         <option value="channel-type">Select Channel</option>
         <option value="ga-lgbtqia-srg">LGBTQIA</option>
