@@ -62,7 +62,6 @@
   margin-right: 25px;
   cursor: pointer;
 }
-.nav-item
 
 /* CHANNELS */
 .channel-outer {
@@ -74,10 +73,6 @@
   padding-top: 5px;
   margin-top: 15px;
 }
-/* .channel-outer > h2 {
-  margin-left: 100px;
-  margin-bottom: 20px;
-} */
 .channel-header {
   margin-top: 20px;
   margin-bottom: 50px;
@@ -227,4 +222,46 @@
 .outcomes-image {
   content: url('./assets/Outcomes.png');
   /* background-size: cover; */
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup p {
+  margin-bottom: 10px;
+}
+
+.popup button {
+  background-color: #01798F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* .navbar-container .active-menu-item {
+  transform: scale(1.1);
+  background-color: #002142;
+} */
+
+.navbar-container .active-menu-item::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #01798F;
+  /* margin-bottom: -15px; */
+  margin-top: 5px;
 }

@@ -3,9 +3,9 @@ import channelsData from "./data";
 import Filter from "./Filter";
 
 const Channels = () => {
-  const [channels, setChannels] = useState(channelsData)
-  const [joinedChannels, setJoinedChannels] = useState([])
-  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null })
+  const [channels, setChannels] = useState(channelsData);
+  const [joinedChannels, setJoinedChannels] = useState([]);
+  const [joinPopup, setJoinPopup] = useState({ show: false, channel: null });
   // const [joinConfirmation, setJoinConfirmation] = useState(false)
 
   const handleJoinClick = (channel) => {
@@ -19,33 +19,47 @@ const Channels = () => {
       setJoinedChannels(updatedJoinedChannels);
     } else {
       // Show the confirmation popup
-      setJoinPopup({ show: true, channel: channel })
+      setJoinPopup({ show: true, channel: channel });
     }
-  }
+  };
+
+  // const filteredChannels = selectedFilter
+  //   ? channels.filter((channel) => channel.type === selectedFilter)
+  //   : channels;
 
   const confirmJoin = () => {
     // Close the confirmation popup
-    setJoinPopup({ show: false, channel: null })
+    setJoinPopup({ show: false, channel: null });
 
     // Join the channel
-    setJoinedChannels([...joinedChannels, joinPopup.channel.id])
-  }
+    setJoinedChannels([...joinedChannels, joinPopup.channel.id]);
+  };
 
   const cancelJoin = () => {
     // Close the confirmation popup
     setJoinPopup({ show: false, channel: null });
-  }
+  };
+
+  const handleFilterSubmit = (filters) => {
+    const filteredChannels = channelsData.filter((channel) => {
+      return (
+        (filters.affiliation === "" ||
+          channel.affiliation === filters.affiliation) &&
+        (filters.channelType === "all" || channel.name === filters.channelType)
+      );
+    });
+    setChannels(filteredChannels);
+  };
 
   return (
     <div className="channel-outer">
-      <div className="channel-header">
-      <h2>Online</h2>
-      <h2>Communities</h2>
-      </div>
+      <h2>
+        Online <br /> Communities
+      </h2>
       <div className="channel-container">
         <div className="side-bar">
           <h3>Search</h3>
-          <Filter />
+          <Filter onFilterSubmit={handleFilterSubmit} />
         </div>
         <div>
           {channels.map((channel) => (
@@ -54,7 +68,7 @@ const Channels = () => {
                 <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
                 <div className="chan-card-description">
                   <h3>{channel.name}</h3>
-                  <h4>Slack Channel Name: {channel.slack_name}</h4>
+                  <h4>Slack Channel Name: #{channel.slack_name}</h4>
                   <p>{channel.description}</p>
                 </div>
                 <button
@@ -87,7 +101,7 @@ const Channels = () => {
         </div>
       )} */}
     </div>
-  )
-}
+  );
+};
 
-export default Channels
+export default Channels;
