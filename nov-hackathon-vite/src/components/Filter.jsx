@@ -13,29 +13,23 @@ const Filter = () => {
   const [channelType, setChannelType] = useState(initialValues);
   // const [timezone, setTimezone] = useState(initialValues);
 
-  // useEffect(() => {
-  //   const getAffiliation = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:3001/filter");
-  //       setAffiliation(response.data);
-  //     } catch (err) {
-  //       console.log("Error fetching Affiliations:", err);
-  //     }
-  //   };
-  //   getAffiliation();
-  // }, []);
 
-  // useEffect(() => {
-  //   const getChannelType = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:3001/filter");
-  //       setChannelType(response.data);
-  //     } catch (err) {
-  //       console.log("Error fetching Channel Types:", err);
-  //     }
-  //   };
-  //   getChannelType();
-  // }, []);
+  useEffect(() => {
+    const getAffiliation = async () => {
+      //   try {
+      //     const response = await axios.get("http://localhost:3001/filter");
+      //     setAffiliation(response.data);
+      //   } catch (err) {
+      //     console.log("Error fetching Affiliations:", err);
+      //   }
+    };
+    getAffiliation();
+  }, []);
+
+  useEffect(() => {
+    setChannelType(channels);
+  }, []);
+
 
   // useEffect(() => {
   //   const getTimezone = async () => {
@@ -70,14 +64,6 @@ const Filter = () => {
 
     if (id === "channelType") {
       setChannelType(value);
-
-      try {
-        const response = await axios.post("http://localhost:3001/filter", {
-          channelType: value,
-        });
-      } catch (err) {
-        console.log("Error adding channelType:", err);
-      }
     }
   };
 
@@ -119,20 +105,11 @@ const Filter = () => {
         // onChange={handleChannelTypeChange}
       >
         <option value="channel-type">Select Channel</option>
-        <option value="ga-lgbtqia-srg">LGBTQIA</option>
-        <option value="ga-pets-srg">Pets</option>
-        <option value="ga-epic-srg">EPIC</option>
-        <option value="ga-womenintech-srg">Women in Tech</option>
-        <option value="ga-parents-guardians-srg">Parents/Guardians</option>
-        <option value="ga-neurodiversityintech-srg">
-          Neurodiversity in Tech
-        </option>
-        <option value="ga-gamers-srg">Gamers</option>
-        <option value="ga-blackintech-srg">Black in Tech</option>
-        <option value="uxdi-lounge">UXDI lounge</option>
-        <option value="sei-lounge">SEI lounge</option>
-        <option value="dsi-lounge">DSI lounge</option>
-        <option value="hired-in-tech">Hired in Tech</option>
+        {channels.map((channel) => (
+          <option key={channel.id} value={channel.value}>
+            {channel.label}
+          </option>
+        ))}
       </select>
       {/* <select
         name="timezone"
