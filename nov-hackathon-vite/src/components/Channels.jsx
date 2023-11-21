@@ -24,6 +24,7 @@ const Channels = () => {
     <div>
       {channels.map(channel => (
         <div key={channel.id} className="channel-card" >
+        <div className="card">
         <img src="" id={`pic${channel.id}`} alt="{channel.name}" />
           <h3>{channel.name}</h3>
           <p>{channel.description}</p>
@@ -33,6 +34,7 @@ const Channels = () => {
           >
             {joinedChannels.includes(channel.id) ? 'Joined' : 'Join Channel'}
           </button>
+          </div>
         </div>
       ))}
     </div>
