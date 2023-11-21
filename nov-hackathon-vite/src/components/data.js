@@ -121,3 +121,5 @@ const channels = [
     course: "ALL",
   },
 ];
+
+export default channels;
